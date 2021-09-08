@@ -18,20 +18,24 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-//   try {
-//     // const { info } = req.body;
-//     // const data = new Data({
-//     //   info,
-//     // });
-//     // await data.save();
-//     var info = req.body.data;
-//     await info.save();
-//     console.log(info);
-//     console.log('dfafasfasfd');
-//   } catch (error) {
-//     return res.status(400).json(error);
-//   }
-console.log(req.body);
+  //   try {
+  // const { info } = req.body;
+  // //     // const data = new Data({
+  // //     //   info,
+  // //     // });
+  // //     // await data.save();
+  // //     var info = req.body.data;
+  // //     await info.save();
+  // //     console.log(info);
+  // //     console.log('dfafasfasfd');
+  // //   } catch (error) {
+  // //     return res.status(400).json(error);
+  // //   }
+  // const data = new Data({
+  //   info,
+  // });
+  // data.save();
+  console.log(req.body.data);
 });
 
 module.exports = router;
