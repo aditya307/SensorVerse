@@ -35,6 +35,8 @@ router.post('/', async (req, res) => {
   //   info,
   // });
   // data.save();
+  console.log('Data will be printed HERERERERERERERERERerr');
+  console.log(req.body);
   console.log(req.body.data);
 });
 
