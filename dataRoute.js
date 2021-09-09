@@ -35,9 +35,19 @@ router.post('/', async (req, res) => {
   //   info,
   // });
   // data.save();
-  console.log('Data will be printed HERERERERERERERERERerr');
-  console.log(req.body);
-  console.log(req.body.data);
+  try {
+    const data = await Data.find();
+    // console.log(data);
+    console.log('Data will be printed HERERERERERERERERERerr');
+    // console.log(req.body);
+    console.log(req.body);
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(404).json(err);
+  }
 });
 
 module.exports = router;
