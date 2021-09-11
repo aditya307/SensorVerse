@@ -6,6 +6,7 @@ const data = require('./dataRoute');
 
 connectDB();
 const app = express();
+app.use(express.json());
 
 app.use('/node/data', data);
 
