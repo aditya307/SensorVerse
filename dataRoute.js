@@ -73,7 +73,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log('post triggered with data : ', req.body.data);
+    console.log('post triggered with data : ', req.body);
     const sensor1 = req.body.SensorData1;
     const sensor2 = req.body.SensorData2;
 
