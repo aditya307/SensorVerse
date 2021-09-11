@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
     // console.log(data);
     console.log('Data will be printed HERERERERERERERERERerr');
     // console.log(req.body);
-    console.log(req.body.info);
+    console.log(req);
     return res.status(200).json({
       success: true,
     });
