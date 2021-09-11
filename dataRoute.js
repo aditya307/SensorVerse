@@ -74,8 +74,13 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     console.log('post triggered with data : ', req.body);
-    const sensor1 = req.body.SensorData1;
-    const sensor2 = req.body.SensorData2;
+    const sensor1 = req.body.Humidity;
+    const sensor2 = req.body.Temprature;
+    const sensor3 = req.body.Smoke;
+    const sensor4 = req.body.Fire;
+    const sensor5 = req.body.Sound;
+    const sensor6 = req.body.Inches;
+    const sensor7 = req.body.Cm;
 
     // MONGO DB DATA INPUT HERE
 
@@ -85,6 +90,11 @@ router.post('/', async (req, res) => {
       data: {
         sensor1,
         sensor2,
+        sensor3,
+        sensor4,
+        sensor5,
+        sensor6,
+        sensor7,
       },
     });
   } catch (err) {
