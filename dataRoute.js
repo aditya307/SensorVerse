@@ -56,7 +56,6 @@ const express = require('express');
 const Data = require('./Data');
 const router = express.Router();
 
-
 router.get('/', async (req, res) => {
   try {
     const data = await Data.find();
@@ -72,7 +71,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/node/data', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     console.log('post triggered with data : ', req.body);
     const sensor1 = req.body.SensorData1;
@@ -85,16 +84,13 @@ router.post('/node/data', async (req, res) => {
       message: 'Data received from nodemcu!',
       data: {
         sensor1,
-        sensor2  
-      }
+        sensor2,
+      },
     });
   } catch (err) {
     console.log(err);
     return res.status(503).json(err);
   }
 });
-
-
-
 
 module.exports = router;
