@@ -24,12 +24,6 @@ router.post('/', async (req, res) => {
 
     let info = await Data.findOne({
       Humidity,
-      Temprature,
-      Smoke,
-      Fire,
-      Sound,
-      Inches,
-      Cm,
     });
     if (info) {
       const info = new Data({
