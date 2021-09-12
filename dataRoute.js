@@ -74,28 +74,31 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     console.log('post triggered with data : ', req.body);
-    const sensor1 = req.body.Humidity;
-    const sensor2 = req.body.Temprature;
-    const sensor3 = req.body.Smoke;
-    const sensor4 = req.body.Fire;
-    const sensor5 = req.body.Sound;
-    const sensor6 = req.body.Inches;
-    const sensor7 = req.body.Cm;
+    // const sensor1 = req.body.Humidity;
+    // const sensor2 = req.body.Temprature;
+    // const sensor3 = req.body.Smoke;
+    // const sensor4 = req.body.Fire;
+    // const sensor5 = req.body.Sound;
+    // const sensor6 = req.body.Inches;
+    // const sensor7 = req.body.Cm;
+
+    const { Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } = req.body;
 
     // MONGO DB DATA INPUT HERE
-
+    const info = new Data({
+      Humidity,
+      Temprature,
+      Smoke,
+      Fire,
+      Sound,
+      Inches,
+      Cm,
+    });
+    await info.save();
     return res.status(200).json({
       success: true,
-      message: 'Data received from nodemcu!',
-      data: {
-        sensor1,
-        sensor2,
-        sensor3,
-        sensor4,
-        sensor5,
-        sensor6,
-        sensor7,
-      },
+      message: 'Info Saved',
+      data: info,
     });
   } catch (err) {
     console.log(err);

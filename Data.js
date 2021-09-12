@@ -2,9 +2,33 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const DataSchema = new Schema({
-  info: {
+  Humidity: {
     type: String,
-    required: true,
+    // required: true,
+  },
+  Temprature: {
+    type: String,
+    // required: true,
+  },
+  Smoke: {
+    type: String,
+    // required: true,
+  },
+  Fire: {
+    type: String,
+    // required: true,
+  },
+  Sound: {
+    type: String,
+    // required: true,
+  },
+  Inches: {
+    type: String,
+    // required: true,
+  },
+  Cm: {
+    type: String,
+    // required: true,
   },
   CreatedAt: {
     type: Date,
