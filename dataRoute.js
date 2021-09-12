@@ -23,6 +23,21 @@ router.post('/', async (req, res) => {
 
     const { Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } = req.body;
 
+    // let info = await Data.findOne({ Humidity });
+    // if (info) {
+    //   // MONGO DB DATA INPUT HERE
+    //   const info = new Data({
+    //     Humidity,
+    //     Temprature,
+    //     Smoke,
+    //     Fire,
+    //     Sound,
+    //     Inches,
+    //     Cm,
+    //   });
+    //   await info.save();
+    // }
+
     const allObjects = await Data.find();
     const obj = allObjects[0];
 
@@ -35,6 +50,18 @@ router.post('/', async (req, res) => {
         (obj['Inches'] = Inches),
         (obj['Cm'] = Cm);
 
+      await obj.save();
+    } else {
+      //   // MONGO DB DATA INPUT HERE
+      const obj = new Data({
+        Humidity,
+        Temprature,
+        Smoke,
+        Fire,
+        Sound,
+        Inches,
+        Cm,
+      });
       await obj.save();
     }
 
