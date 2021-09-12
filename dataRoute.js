@@ -21,19 +21,23 @@ router.post('/', async (req, res) => {
   try {
     console.log('post triggered with data : ', req.body);
 
-    const { Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } = req.body;
+    const { Constant, Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } =
+      req.body;
 
-    // MONGO DB DATA INPUT HERE
-    const info = new Data({
-      Humidity,
-      Temprature,
-      Smoke,
-      Fire,
-      Sound,
-      Inches,
-      Cm,
-    });
-    await info.save();
+    let info = await Data.findOne({ Constant });
+    if (info) {
+      // MONGO DB DATA INPUT HERE
+      const info = new Data({
+        Humidity,
+        Temprature,
+        Smoke,
+        Fire,
+        Sound,
+        Inches,
+        Cm,
+      });
+      await info.save();
+    }
     return res.status(200).json({
       success: true,
       message: 'Info Saved',

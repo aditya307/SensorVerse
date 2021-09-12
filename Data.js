@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const DataSchema = new Schema({
+  Constant: {
+    type: String,
+    default: "Constant"
+  },
   Humidity: {
     type: String,
     // required: true,
