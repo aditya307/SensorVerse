@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
     console.log('post triggered with data : ', req.body);
     const { Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } = req.body;
 
-    let user = await Data.findOne({
+    let info = await Data.findOne({
       Humidity,
       Temprature,
       Smoke,
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
       Inches,
       Cm,
     });
-    if (user) {
+    if (info) {
       const info = new Data({
         Humidity,
         Temprature,
