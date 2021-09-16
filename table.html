@@ -4,32 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="refresh" content="3" ; url="https://jaadu-home.herokuapp.com/node/data" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jaadu</title>
 </head>
 <style>
     table,
-    th,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: auto;
+        text-align: center;
+
+    }
+
     td {
         border: 1px solid black;
         border-collapse: collapse;
+        text-align: center;
+    }
+
+    tr {
+        height: 50px;
+        width: 70%;
+        align-items: center;
     }
 </style>
 
 <body>
-    <!-- <div style="padding: 250px;">
-        <table>
-            <tr>
-                <th>Company</th>
-                <th>Contact</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-            </tr>
+    <h1 style="text-align: center;">Jaadu Sensor Data</h1>
 
-        </table> -->
-    <!-- </div> -->
+    <div id="app" style="align-content: center;">
+    </div>
+    <div style=" text-align: right; padding-top: 150px; padding-inline-end: 40px;">
+        <div style="padding-inline-end: 480px; font-weight: bolder;">
+            <p style="color: red;">**** Directions</p>
+        </div>
+        <ul>
+            <li>
+                Value "1" means that paramters like Fire, Smoke and Sound are <b>ABOVE</b> the Threshold Value.
+            </li>
+            <li>
+                Value "0" means that paramters like Fire, Smoke and Sound are <b>BELOW</b> the Threshold Value.
+            </li>
+        </ul>
+    </div>
+
+    <div style=" font-weight: bolder; margin: auto; margin-left: 50px;">
+        <p>*Page Reloads after every 3 Seconds.*</p>
+    </div>
 </body>
 <script src="script.js"></script>
+
 </html>
