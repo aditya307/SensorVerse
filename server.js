@@ -1,11 +1,13 @@
 const express = require('express');
-const bodyPraser = require('body-parser');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const connectDB = require('./db');
 const path = require('path');
 const data = require('./dataRoute');
 
 connectDB();
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.get('/', async (req, res) => {
