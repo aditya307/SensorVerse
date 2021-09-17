@@ -57,4 +57,7 @@ function fetchData() {
       console.log(error);
     });
 }
-fetchData();
+// fetchData();
+window.setInterval(function () {
+  fetchData();
+}, 3000);
