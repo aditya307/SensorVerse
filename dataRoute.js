@@ -1,20 +1,26 @@
 const express = require('express');
 const Data = require('./Data');
+const path = require('path');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
     const data = await Data.find();
     console.log(data);
-    return res.status(200).json({
+    res.json({
       success: true,
       count: data.length,
       data: data,
     });
+    // res.sendFile(path.join(__dirname + '/table.html'));
   } catch (err) {
     console.log(err);
     return res.status(404).json(err);
   }
+});
+
+router.get('/', async (req, res) => {
+  // return res.sendFile(path.join(__dirname + '/table.html'));
 });
 
 router.post('/', async (req, res) => {
@@ -22,7 +28,7 @@ router.post('/', async (req, res) => {
     console.log('post triggered with data : ', req.body);
 
     const { Humidity, Temprature, Smoke, Fire, Sound, Inches, Cm } = req.body;
-    
+
     const allObjects = await Data.find();
     const obj = allObjects[0];
 

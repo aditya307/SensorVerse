@@ -10,8 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', async (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
+app.get('/table', async (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/table.html'));
 });
 
 app.use('/node/data', data);
